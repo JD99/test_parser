@@ -1,0 +1,20 @@
+{% load static %} 
+{% load render_bundle from webpack_loader %}
+{% load webpack_static from webpack_loader %}
+
+<!DOCTYPE html>
+<html class="min-vh-100" lang="ru">
+    <head>
+        <title>Курсы валют - {% block title %}{% endblock %}</title> 
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta charset="utf-8">
+        <meta name="description" content="Информационная система «Курсы валют»">
+        <link rel="icon" type="image/png" href="{% static 'img/favicon.png' %}" > 
+        {% block style %}{% endblock %}
+    </head> 
+    <body lang="ru">
+        {% block content %}{% endblock %} 
+        {% block modal %}{% endblock %} 
+        {% block script %}{% endblock %}  
+    </body> 
+</html>

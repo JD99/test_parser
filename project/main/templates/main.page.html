@@ -1,0 +1,84 @@
+{% extends 'main_base.html' %} 
+{% load render_bundle from webpack_loader %}
+{% load django_bootstrap5 %}
+
+{% block title %}Главная страница{% endblock %}
+
+{% block content %}
+
+<div class="container">
+    <div class="d-flex min-vh-100">
+        <div class="align-self-top w-100"> 
+            <div class="row"> 
+                <div class="col-sm"> 
+                    <h1>Информационная система «Курсы валют»</h1>  
+                    <div class="row"> 
+                        <div class="col-7"> 
+                            <div class="col-12 bd-callout bd-callout-warning">
+                                Данная панель позволяет производить загрузку данных о курсах валют за указанные период. Выберите период и нажмите кнопку "Загрузить данные".
+                                Автоматическая загрузка курсов валют на текущую дату происходит каждый час.
+                                <br>
+                                <br>
+                                <label for="date-rage-load" class="form-label">Выберите период</label> 
+                                <div class="row"> 
+                                    <div class="col-6">
+                                        <input id="date-rage-load" type="text" class="form-control" placeholder="" aria-describedby="button-rage1">  
+                                    </div>
+                                    <div class="col-6">
+                                        <button id="action-load" type="button" class="btn btn-primary mb-3">Загрузить данные</button> 
+                                    </div>
+                                </div>
+                            </div> 
+                        </div>
+                    </div>
+                    
+                    <div class="col-12 bd-callout bd-callout-warning">
+                        Выберите дату и валюту для фильтрации
+                        <div class="row filter-contaner"> 
+                            <h3>Фильтры курсов валют</h1>  
+                            <div class="col-6">
+                                {% bootstrap_field form_currency.currency %}
+                            </div> 
+                            <div class="col-6">
+                                {% bootstrap_field form_currency.date_status %}
+                            </div> 
+                        </div> 
+                    </div> 
+                    </br>
+                    <table id="cbr-table" class="table table-striped" width="100%"></table> 
+                    </br> 
+                </div> 
+            </div> 
+        </div> 
+    </div>
+</div>
+
+
+{% endblock %} 
+
+{% block modal %}
+
+<div class="modal" tabindex="-1" id="modal-msg">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">Уведомление</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <p></p>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Закрыть</button> 
+        </div>
+      </div>
+    </div>
+  </div>
+{% endblock %} 
+  
+{% block script %}
+    {% render_bundle "main_page" 'js' %}
+{% endblock %} 
+{% block style %}
+    {% render_bundle "main_page" 'css' %}
+{% endblock %}

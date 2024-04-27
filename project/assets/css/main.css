@@ -1,0 +1,50 @@
+body {
+  position: relative;
+}
+
+.datepicker td,
+.datepicker th {
+  width: 2rem !important;
+  height: 2rem !important;
+  font-size: 0.85rem !important;
+}
+
+.datepicker {
+  margin-bottom: 2.5rem !important;
+}
+.datepicker-dropdown {
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1) !important;
+}
+
+input {
+  outline: none !important;
+}
+.form-control:focus,
+.select2-container--bootstrap-5
+  .select2-dropdown
+  .select2-search
+  .select2-search__field:focus {
+  box-shadow: none !important;
+}
+.select2-container--bootstrap-5.select2-container--focus .select2-selection,
+.select2-container--bootstrap-5.select2-container--open .select2-selection {
+  box-shadow: none !important;
+}
+
+.page-link:focus {
+  box-shadow: none !important;
+}
+
+.bd-callout {
+  padding: 1.25rem;
+  margin-top: 1.25rem;
+  margin-bottom: 1.25rem;
+  border: 1px solid #e9ecef;
+  border-left-width: 1px;
+  border-left-color: rgb(233, 236, 239);
+  border-left-width: 0.25rem;
+  border-radius: 0.25rem;
+}
+.bd-callout-warning {
+  border-left-color: #f0ad4e;
+}

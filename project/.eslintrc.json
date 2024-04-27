@@ -1,0 +1,47 @@
+{
+  "env": {
+    "browser": true,
+    "es2021": true,
+    "jquery": true,
+    "es6": true,
+    "node": true
+  },
+  "plugins": ["prettier"],
+  "extends": ["eslint:recommended", "plugin:prettier/recommended", "prettier"],
+  "parserOptions": {
+    "sourceType": "module",
+    "allowImportExportEverywhere": true,
+    "ecmaVersion": 12
+  },
+  "rules": {
+    "prettier/prettier": ["error", { "endOfLine": "auto" }], // экспорт правил prettier для линтинга
+
+    // Проверки линтинга кода ERROR -> WARN -> OFF
+    /* "no-undef":"error",
+        "no-unused-vars":"error",
+        "no-redeclare":"error",
+        "no-empty":"error",
+        "no-inner-declarations":"error",
+        "no-extra-semi":"error", */
+
+    // Количество символов в строке https://eslint.org/docs/rules/max-len
+    "max-len": [
+      "error",
+      {
+        "code": 80,
+        "ignoreUrls": true // не резать ссылки
+      }
+    ],
+    // Цикломатическая сложность https://eslint.org/docs/rules/complexity
+    "complexity": [
+      "warn",
+      {
+        "max": 10
+      }
+    ],
+    "semi": [2, "always"],
+    // "semi": ["error", "always"]
+    // Запятая в конце перечисления данных https://eslint.org/docs/rules/comma-dangle
+    "comma-dangle": ["error", "only-multiline"]
+  }
+}
