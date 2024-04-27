@@ -7,7 +7,6 @@ celerybeat.pid
 worker.state 
 .env
 node_modules/
-db.sqlite3
 
 ### Django ###
 logs/
