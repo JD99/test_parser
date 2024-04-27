@@ -6,7 +6,9 @@
 - `apt install tmux make`
 
 - Интерактивный режим tmux
-vi ~/.tmux.conf
+
+`vi ~/.tmux.conf`
+
 `
 set-option -g -q mouse on
 bind-key -T root WheelUpPane if-shell -F -t = "#{alternate_on}" "send-keys -M" "select-pane -t =; copy-mode -e; send-keys -M"
