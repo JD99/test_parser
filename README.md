@@ -4,7 +4,7 @@
 
 1. Для запуска на локальной машине потребуется tmux и make
 - `apt install tmux make npm`
-- Интерактивный режим tmux `vi ~/.tmux.conf`
+- Интерактивный режим tmux, добавить код ниже в файл. `vi ~/.tmux.conf`
 
 ```
 set-option -g -q mouse on
