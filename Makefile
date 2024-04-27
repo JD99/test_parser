@@ -1,7 +1,9 @@
 install:
 	poetry install
-	cd project/ && npm ci && npm run build
- 
+	cd project/ && npm ci && npm run build && poetry run python project/manage.py migrate
+migrate:
+	poetry run python project/manage.py migrate
+
 dev_start: dev_stop
 	tmux new-session -s test_parser -d && \
 	tmux split-window -v -t test_parser:0.0 && \

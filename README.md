@@ -3,7 +3,7 @@
 Для работы необходимо: python v3.10, poetry 1.4, node v20, tmux, make
 
 1. Для запуска на локальной машине потребуется tmux и make
-- `apt install tmux make`
+- `apt install tmux make npm`
 - Интерактивный режим tmux `vi ~/.tmux.conf`
 
 ```
@@ -21,9 +21,11 @@ bind-key -T root WheelDownPane if-shell -F -t = "#{alternate_on}" "send-keys -M"
 4. Для запуска необходимо в корне проекта создать файлы .env
    заполнить их в соответсвии с .env.example
 
-
+5 Создание базы данных, применение миграций `make migrate`
+ 
 Полезные команды в Makefile:
 * make install - создает вирт.окружение устанавливает зависимости, выполняет сборку js
+* make migrate - создает БД, применяет миграции
 * make dev_start - запуск дев сервера (ресурс доступен на порту 8015)
 * make dev_stop - остановка дев сервера
 * make dev_stop - проверить стили кода
