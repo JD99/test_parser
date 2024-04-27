@@ -29,6 +29,6 @@ bind-key -T root WheelDownPane if-shell -F -t = "#{alternate_on}" "send-keys -M"
 * make migrate - создает БД, применяет миграции
 * make dev_start - запуск дев сервера (ресурс доступен на порту 8015)
 * make dev_stop - остановка дев сервера
-* make dev_stop - проверить стили кода
+* make dev_style - проверить стили кода
 
 
