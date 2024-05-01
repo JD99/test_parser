@@ -192,7 +192,7 @@ REST_FRAMEWORK = {
         "rest_framework_datatables.renderers.DatatablesRenderer",
     ),
     "DEFAULT_FILTER_BACKENDS": (
-        "django_filters.rest_framework.DjangoFilterBackend",
+        # "django_filters.rest_framework.DjangoFilterBackend",
         "rest_framework_datatables.filters.DatatablesFilterBackend",
     ),
     "DEFAULT_PAGINATION_CLASS": (
@@ -220,3 +220,6 @@ CACHES = {
         "TIMEOUT": 3600,
     },
 }
+
+STATIC_ROOT = os.path.join(BASE_DIR, "static")
+STATIC_URL = "/static/"

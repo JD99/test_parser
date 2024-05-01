@@ -13,9 +13,9 @@ dev_start: dev_stop
 	tmux send-keys -t test_parser:0.1 'cd project/' Enter && \
 	tmux send-keys -t test_parser:0.1 'poetry run npm run watch' Enter && \
 	tmux send-keys -t test_parser:0.2 'cd project/' Enter && \
-	tmux send-keys -t test_parser:0.2 'poetry run celery --pidfile= -A project worker --loglevel=info --concurrency=4 -E' Enter && \
+	tmux send-keys -t test_parser:0.2 'poetry run celery -A project worker --pidfile= --loglevel=info --concurrency=4 -E' Enter && \
 	tmux send-keys -t test_parser:0.3 'cd project/' Enter && \
-	tmux send-keys -t test_parser:0.3 'poetry run celery --pidfile= -A project beat --loglevel=info' Enter && \
+	tmux send-keys -t test_parser:0.3 'poetry run celery -A project beat --pidfile= --loglevel=info' Enter && \
 	tmux attach -t test_parser
 
 dev_stop:

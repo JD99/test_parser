@@ -32,3 +32,5 @@ bind-key -T root WheelDownPane if-shell -F -t = "#{alternate_on}" "send-keys -M"
 * make dev_style - проверить стили кода
 
 
+Запуск через docker-compose 
+`sudo docker-compose up -d `

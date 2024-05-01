@@ -14,6 +14,6 @@ app.autodiscover_tasks()
 app.conf.beat_schedule = {
     "load_data": {
         "task": "project.tasks.load_data",
-        "schedule": crontab(hour="*/1"),
+        "schedule": crontab(minute=0, hour="*/1"),
     },
 }

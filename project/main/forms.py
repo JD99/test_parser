@@ -1,4 +1,4 @@
-from django.contrib.gis import forms
+from django import forms
 from django_select2 import forms as select2_forms
 
 from project import models
@@ -35,11 +35,11 @@ class FormFilterMain(forms.Form):
         required=False,
         label="Валюта",
         empty_label="не выбрано",
-        queryset=models.Сurrency.objects.all().order_by("name"),
+        queryset=models.Сurrency.objects.all().order_by("title"),
         widget=ModelSelect2Widget(
-            queryset=models.Сurrency.objects.all().order_by("name"),
+            queryset=models.Сurrency.objects.all().order_by("title"),
             model=models.Сurrency,
-            search_fields=["name__icontains"],
+            search_fields=["title__icontains"],
         ),
     )
 
@@ -51,5 +51,16 @@ class FormFilterMain(forms.Form):
                 "autocomplete": "off",
                 "data-type": "date",
             }
+        ),
+    )
+    currency_chart = forms.ModelChoiceField(
+        required=False,
+        label="Валюта",
+        empty_label="не выбрано",
+        queryset=models.Сurrency.objects.all().order_by("title"),
+        widget=ModelSelect2Widget(
+            queryset=models.Сurrency.objects.all().order_by("title"),
+            model=models.Сurrency,
+            search_fields=["title__icontains"],
         ),
     )

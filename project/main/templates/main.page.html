@@ -7,53 +7,94 @@
 {% block content %}
 
 <div class="container">
-    <div class="d-flex min-vh-100">
-        <div class="align-self-top w-100"> 
-            <div class="row"> 
-                <div class="col-sm"> 
-                    <h1>Информационная система «Курсы валют»</h1>  
+  <div class="d-flex min-vh-100">
+    <div class="align-self-top w-100"> 
+      <div class="row"> 
+        <div class="col-sm"> 
+          <br>
+          <h1>Информационная система «Курсы валют»</h1>   
+          <br>
+          <nav>
+            <div class="nav nav-tabs" id="nav-tab" role="tablist">
+              <button class="nav-link active" id="pills-home-tab" data-bs-toggle="pill" data-bs-target="#pills-home" type="button" role="tab" aria-controls="pills-home" aria-selected="true">Курсы валют (таблица)</button>
+              <button class="nav-link" id="pills-profile-tab" data-bs-toggle="pill" data-bs-target="#pills-profile" type="button" role="tab" aria-controls="pills-profile" aria-selected="false">Курсы валют (график)</button>
+            </div>
+          </nav>
+          <div class="tab-content" id="pills-tabContent">
+            <div class="tab-pane fade show active" id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab"> 
+              <div class="row"> 
+                <div class="col-5"> 
+                  <div class="col-12 bd-callout bd-callout-warning">
+                    <h3>Загрузка данных</h1>  
+                    Данная панель позволяет производить загрузку данных о курсах валют за указанные период. Выберите период и нажмите кнопку "Загрузить данные".
+                    Автоматическая загрузка курсов валют на текущую дату происходит каждый час.
+                    <br>
+                    <br>
+                    <label for="date-rage-load" class="form-label">Выберите период</label> 
                     <div class="row"> 
-                        <div class="col-7"> 
-                            <div class="col-12 bd-callout bd-callout-warning">
-                                Данная панель позволяет производить загрузку данных о курсах валют за указанные период. Выберите период и нажмите кнопку "Загрузить данные".
-                                Автоматическая загрузка курсов валют на текущую дату происходит каждый час.
-                                <br>
-                                <br>
-                                <label for="date-rage-load" class="form-label">Выберите период</label> 
-                                <div class="row"> 
-                                    <div class="col-6">
-                                        <input id="date-rage-load" type="text" class="form-control" placeholder="" aria-describedby="button-rage1">  
-                                    </div>
-                                    <div class="col-6">
-                                        <button id="action-load" type="button" class="btn btn-primary mb-3">Загрузить данные</button> 
-                                    </div>
-                                </div>
-                            </div> 
-                        </div>
+                    <div class="col-6">
+                      <input autocomplete="off" id="date-rage-load" type="text" class="form-control" placeholder="" aria-describedby="button-rage1">  
                     </div>
-                    
-                    <div class="col-12 bd-callout bd-callout-warning">
-                        Выберите дату и валюту для фильтрации
-                        <div class="row filter-contaner"> 
-                            <h3>Фильтры курсов валют</h1>  
-                            <div class="col-6">
-                                {% bootstrap_field form_currency.currency %}
-                            </div> 
-                            <div class="col-6">
-                                {% bootstrap_field form_currency.date_status %}
-                            </div> 
-                        </div> 
-                    </div> 
-                    </br>
-                    <table id="cbr-table" class="table table-striped" width="100%"></table> 
-                    </br> 
+                    <div class="col-6">
+                      <button id="action-load" type="button" class="btn btn-primary mb-3">Загрузить данные</button> 
+                    </div>
+                  </div>
                 </div> 
+              </div>
+            <div class="col-7 bd-callout bd-callout-warning">
+              <h3>Фильтры курсов валют</h1>  
+              <div class="row filter-contaner"> 
+                <p>Выберите дату и валюту для фильтрации</p>
+                <div class="col-6">
+                  {% bootstrap_field form_currency.currency %}
+                </div> 
+                <div class="col-6">
+                  {% bootstrap_field form_currency.date_status %}
+                </div> 
+              </div> 
+              <br>
+              <div class="col-12">
+                <button id="action-reset" type="button" class="btn btn-primary mb-3">Сбросить фильтры</button> 
+                <button id="action-json" type="button" class="btn btn-primary mb-3">Скачать в формате JSON</button> 
+                <button id="action-ref" type="button" class="btn btn-primary mb-3">Обновить таблицу</button> 
+              </div>
             </div> 
+          </div>  
+          </br>
+          <table id="cbr-table" class="table table-striped" width="100%"></table> 
+          </br> 
+        </div>
+        <div class="tab-pane fade" id="pills-profile" role="tabpanel" aria-labelledby="pills-profile-tab">
+          <br>
+          <div class="row"> 
+            <div class="col-12"> 
+              <div class="row chart-filter"> 
+                <h3>График курса валюты</h1> 
+                  <p>
+                    Выберите валюту и период для начала работы
+                  </p> 
+                  <div class="col-3">
+                    {% bootstrap_field form_currency.currency_chart %}
+                  </div>  
+                  <div class="col-3">
+                    <label for="date-rage-chart" class="form-label">Выберите период</label>  
+                    <input autocomplete="off" id="date-rage-chart" type="text" class="form-control" placeholder="">  
+                  </div> 
+                </div> 
+                <button id="action-json2" type="button" class="btn btn-primary mb-3">Скачать в формате JSON</button> 
+
+                <figure class="highcharts-figure">
+                  <div id="container"></div> 
+                </figure>
+              </div>  
+            </div>  
+          </div>  
         </div> 
-    </div>
+      </div> 
+    </div> 
+  </div>
 </div>
-
-
+ 
 {% endblock %} 
 
 {% block modal %}

@@ -48,3 +48,7 @@ input {
 .bd-callout-warning {
   border-left-color: #f0ad4e;
 }
+
+.select2.select2-container.select2-container--bootstrap-5 {
+  width: 100% !important;
+}

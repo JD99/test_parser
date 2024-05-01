@@ -23,6 +23,8 @@ django-redis = "^5.4.0"
 django-bootstrap5 = "^24.2"
 requests = "^2.31.0"
 django-filter = "^24.2"
+uwsgi = "^2.0.25.1"
+gevent = "^24.2.1"
 
 
 [build-system]

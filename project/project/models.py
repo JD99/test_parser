@@ -6,8 +6,7 @@ class ExcRates(models.Model):
     value = models.FloatField()
     date_status = models.DateField()
     currency = models.ForeignKey(
-        "Сurrency",
-        models.DO_NOTHING,
+        "Сurrency", models.DO_NOTHING, related_name="currency"
     )
 
     class Meta:
@@ -16,7 +15,7 @@ class ExcRates(models.Model):
         verbose_name_plural = "Курсы валют"
 
     def __str__(self) -> str:
-        return self.currency
+        return self.value
 
 
 class Сurrency(models.Model):
